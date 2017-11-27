@@ -212,11 +212,12 @@ nav {
 
 .menu-wrapper {
   overflow: auto;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100%;
+  //height: 100vh;
   color: #fff;
   background: #151515;
   padding: 120px 0 0;
@@ -418,8 +419,8 @@ nav {
   }
 
   .menu-wrapper {
-    height: auto;
-    min-height: 100vh;
+    //height: auto;
+    //min-height: 100vh;
     padding: 40px 0;
   }
 
