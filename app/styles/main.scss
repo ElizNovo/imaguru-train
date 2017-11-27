@@ -48,6 +48,9 @@ body {
   transition:all 200ms;
   //will-change:background;
 }
+.noscroll {
+  overflow: hidden;
+}
 
 p {
   font-size: 1.8rem;
@@ -113,7 +116,6 @@ nav {
   top: 0;
   width: 100%;
   height: 44px;
-  padding-top: 14px;
   background: #151515;
   color: #fff;
   text-align: center;
@@ -131,6 +133,15 @@ nav {
 }
 
 /* hamburger menu icon */
+
+.menu-icon {
+  background: #151515;
+  height: 44px;
+  padding-top: 14px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
 
 .menu-icon span {
   display: block;
@@ -178,6 +189,7 @@ nav {
 
 .menu-btn:checked + .menu-icon {
   padding-left: 8px;
+  height: 64px;
 }
 
 .menu-btn:checked + .menu-icon span {
@@ -209,15 +221,13 @@ nav {
   background: #151515;
   padding: 120px 0 0;
   -webkit-font-smoothing: antialiased;
-  //transform: translate(0, -100vh);
-  //transform-origin: 0 0;
-  //transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-  display: none;
+  transform: translate(0, -100vh);
+  transform-origin: 0 0;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
 .menu-btn:checked ~ .menu-wrapper {
-  //transform: none;
-  display: block;
+  transform: none;
 }
 
 .menu-content {
@@ -410,10 +420,11 @@ nav {
   .menu-wrapper {
     height: auto;
     min-height: 100vh;
-    padding-top: 40px;
-    //transform: translate(0, -100vh);
+    padding: 40px 0;
   }
+
   .menu-content {
+    padding: 0 70px;
     text-align: center;
 
     grid-template-columns: repeat(1, 100%);
