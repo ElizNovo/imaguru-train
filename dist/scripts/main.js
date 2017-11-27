@@ -1,1 +1,0 @@
-"use strict";$(window).on("scroll touchmove",function(){if(0===$(".menu-btn:checked").length){var o=$("section[data-color]"),c=$(document).scrollTop();o.each(function(o,t){var n=$(t);c>=n.position().top&&$("body").css("background",n.attr("data-color"))})}});
