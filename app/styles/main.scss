@@ -121,6 +121,12 @@ nav {
   a {
     color: #fff;
     border-bottom: 1px solid #fff;
+    &:hover {
+      border-bottom: none;
+    }
+  }
+  h2 a {
+    border-bottom: none;
   }
 }
 
@@ -193,16 +199,18 @@ nav {
 /* menu-content */
 
 .menu-wrapper {
+  overflow: auto;
   position: absolute;
   top: 0;
+  bottom: 0;
   width: 100%;
   height: 100vh;
   color: #fff;
   background: #151515;
   padding: 120px 0 0;
   -webkit-font-smoothing: antialiased;
+  transform: translate(0, -100vh);
   transform-origin: 0 0;
-  transform: translate(0, -100%);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
@@ -259,10 +267,6 @@ nav {
   }
 }
 
-.menu-content [class*="menu-item"] {
-
-}
-
 .menu-item-primary {
   grid-area: primary;
   li {
@@ -273,7 +277,9 @@ nav {
       padding-top: 0;
     }
   }
-
+  a {
+    border-bottom: none;
+  }
 }
 
 .menu-item-lang {
@@ -370,7 +376,7 @@ nav {
 
 // media
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
 
   .menu-content {
     grid-template-columns: repeat(3, 1fr);
@@ -388,3 +394,28 @@ nav {
 
 }
 
+
+@media (max-width: 767px) {
+
+  .menu-wrapper {
+    height: auto;
+    min-height: 100vh;
+    transform: translate(0, -100vh);
+  }
+  .menu-content {
+    grid-template-columns: repeat(1, 100%);
+    grid-row-gap: 0;
+    grid-template-areas:
+      "primary"
+      "tickets"
+      "previous"
+      "lang";
+  }
+
+  .menu-item-about,
+  .menu-item-venue,
+  .menu-item-social {
+    display: none;
+  }
+
+}
