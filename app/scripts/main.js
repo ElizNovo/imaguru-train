@@ -1,4 +1,7 @@
 $(window).on('scroll touchmove', function () {
+  if ($('.menu-btn:checked').length === 0) {
+
+
   let coloredSections = $('section[data-color]');
 
   const scrollTop = $(document).scrollTop();
@@ -9,4 +12,5 @@ $(window).on('scroll touchmove', function () {
       $('body').css('background', section.attr('data-color'));
     }
   });
+}
 });
