@@ -209,13 +209,15 @@ nav {
   background: #151515;
   padding: 120px 0 0;
   -webkit-font-smoothing: antialiased;
-  transform: translate(0, -100vh);
-  transform-origin: 0 0;
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  //transform: translate(0, -100vh);
+  //transform-origin: 0 0;
+  //transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  display: none;
 }
 
 .menu-btn:checked ~ .menu-wrapper {
-  transform: none;
+  //transform: none;
+  display: block;
 }
 
 .menu-content {
@@ -397,10 +399,14 @@ nav {
 
 @media (max-width: 767px) {
 
+  h1 {
+    font-size: 2rem;
+  }
+
   .menu-wrapper {
     height: auto;
     min-height: 100vh;
-    transform: translate(0, -100vh);
+    //transform: translate(0, -100vh);
   }
   .menu-content {
     grid-template-columns: repeat(1, 100%);
