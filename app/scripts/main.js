@@ -4,7 +4,7 @@ $(window).on('scroll touchmove', function () {
 
     let coloredSections = $('section[data-color]');
 
-    const scrollTop = $(document).scrollTop();
+    const scrollTop = $(document).scrollTop() + $(window).height()/2;
 
     coloredSections.each(function (sectionIndex, sec) {
       let section = $(sec);
