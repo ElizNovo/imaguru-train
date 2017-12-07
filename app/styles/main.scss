@@ -11,7 +11,6 @@ $color-black: #151515;
 $color-link: $color-black;
 $color-text: $color-black;
 
-
 $color-blue: #6CD9FF;
 $color-purple: #BB94FF;
 $color-pink: #FC94FC;
@@ -19,33 +18,46 @@ $color-yellow: #F8EF5A;
 $color-lime: #CDE525;
 $color-green: #51E782;
 
-$content-sm: 470px;
+$content-xsm: 470px;
+$content-sm: 555px;
 $content-md: 740px;
 $content-lg: 1134px;
+
+$height-footer: 40px;
 
 $font-family: 'Exo 2', sans-serif;
 
 //text sizes
-$font-size-sm: 1.8rem; $line-height-sm: 2.8rem;
-$font-size-md: 2.4rem; $line-height-md: 3.6rem;
-$font-size-lg: 3.6rem; $line-height-lg: 4.6rem;
+$font-size-sm: 1.8rem;
+$line-height-sm: 2.8rem;
+$font-size-md: 2.4rem;
+$line-height-md: 3.6rem;
+$font-size-lg: 3.6rem;
+$line-height-lg: 4.6rem;
 
 //text sizes for mobile
-$font-size-sm-mb: 1.6rem; $line-height-sm-mb: 2.4rem;
-$font-size-md-mb: 1.8rem; $line-height-md-mb: 2.6rem;
-$font-size-lg-mb: 2.4rem; $line-height-lg-mb: 3.2rem;
-
+$font-size-sm-mb: 1.6rem;
+$line-height-sm-mb: 2.4rem;
+$font-size-md-mb: 1.8rem;
+$line-height-md-mb: 2.6rem;
+$font-size-lg-mb: 2.4rem;
+$line-height-lg-mb: 3.2rem;
 
 //heading sizes
-$font-size-h1: 7.2rem; $line-height-h1: 8rem;
-$font-size-h2: 2rem; $line-height-h2: 3rem;
-$font-size-h3: 2rem; $line-height-h3: 3rem;
+$font-size-h1: 7.2rem;
+$line-height-h1: 8rem;
+$font-size-h2: 2rem;
+$line-height-h2: 3rem;
+$font-size-h3: 2rem;
+$line-height-h3: 3rem;
 
 //heading sizes for mobile
-$font-size-h1-mb: 3rem; $line-height-h1-mb: 3.8rem;
-$font-size-h2-mb: 2rem; $line-height-h2-mb: 3rem;
-$font-size-h3-mb: 1.8rem; $line-height-h3-mb: 2.6rem;
-
+$font-size-h1-mb: 3rem;
+$line-height-h1-mb: 3.8rem;
+$font-size-h2-mb: 2rem;
+$line-height-h2-mb: 3rem;
+$font-size-h3-mb: 1.8rem;
+$line-height-h3-mb: 2.6rem;
 
 /*------------------------------------*\
       MIXINS
@@ -119,18 +131,39 @@ html {
 }
 
 html {
+  height: 100%;
   font-size: 10px; // for using rem
 }
 
 body {
+  height: 100%;
   background: $color-blue;
+  //background: repeating-linear-gradient(black, black 1%, blue 1%, blue 99%, black, black 100%);
   padding-top: 44px;
   font-family: 'Exo 2', sans-serif;
   color: $color-text;
   font-size: 1.8rem;
   line-height: 2.8rem;
   transition: all 200ms;
-  //will-change:background;
+
+  &.page-speakers {
+    background: $color-pink;
+    .btn {
+      &:hover {
+        color: $color-pink;
+      }
+    }
+    footer {
+      color: $color-pink;
+    }
+  }
+
+  &.page-schedule {
+    background: $color-lime;
+    footer {
+      color: $color-lime;
+    }
+  }
 }
 
 .noscroll {
@@ -153,9 +186,10 @@ p.text-md {
   }
 }
 
-p.text-lg {
+p.text-lg, h2.text-lg {
   font: bold #{$font-size-lg}/#{$line-height-lg} $font-family;
   margin: 2rem 0;
+  text-transform: none;
   @media (max-width: 767px) {
     font: bold #{$font-size-lg-mb}/#{$line-height-lg-mb} $font-family;
   }
@@ -168,7 +202,6 @@ h1 {
   @media (max-width: 767px) {
     font: bold #{$font-size-h1-mb}/#{$line-height-h1-mb} $font-family;
   }
-
 }
 
 h2 {
@@ -180,6 +213,10 @@ h2 {
     font: bold #{$font-size-h2-mb}/#{$line-height-h2-mb} $font-family;
     margin-top: 0;
     margin-bottom: 40px;
+  }
+
+  &.text-lg {
+    margin-bottom: 60px;
   }
 }
 
@@ -209,13 +246,36 @@ a {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .padding-top-large {
   padding-top: 80px;
+}
+
+.margin-bottom-md {
+  margin-bottom: 30px;
+  @media (max-width: 767px) {
+    margin-bottom: 15px;
+  }
 }
 
 section {
   padding: 80px 20px;
   text-align: center;
+
+  &.shorted {
+    padding: 40px 20px;
+    text-align: left;
+    &:last-child {
+      padding-bottom: 120px;
+    }
+  }
+
+  .content-xsm {
+    max-width: $content-xsm;
+  }
   .content-sm {
     max-width: $content-sm;
   }
@@ -225,6 +285,7 @@ section {
   .content-lg {
     max-width: $content-lg;
   }
+  .content-xsm,
   .content-sm,
   .content-md,
   .content-lg {
@@ -232,6 +293,11 @@ section {
     margin-right: auto;
   }
 }
+
+nav + section.shorted {
+  padding-top: 80px;
+}
+
 
 .btn {
   display: inline-block;
@@ -261,17 +327,17 @@ section {
 
 .social-links {
   text-align: center;
+  padding: 80px 0 40px;
   margin: 0 auto;
   li {
     display: inline-block;
   }
   a {
     border-bottom: none;
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding: 0 5px;
   }
 }
-
 
 /*------------------------------------*\
     ANIMATED NAVIGATION
@@ -295,6 +361,10 @@ nav {
   }
   h2 a {
     border-bottom: none;
+  }
+
+  .social-links a {
+    font-size: 2.5rem;
   }
 }
 
@@ -556,63 +626,64 @@ nav {
   font-size: 0;
 }
 
-@keyframes slidy {
+@keyframes slidy2015 {
 
-  0% { background-image: url("../images/2016/1.jpg");}
+  0% {
+    background-image: url("../images/2016/1.jpg");
+  }
 
-  8% { background-image: url("../images/2016/2.jpg");}
-  16% { background-image: url("../images/2016/2.jpg");}
+  8% {
+    background-image: url("../images/2016/2.jpg");
+  }
+  16% {
+    background-image: url("../images/2016/3.jpg");
+  }
 
-  16% { background-image: url("../images/2016/3.jpg");}
-  24% { background-image: url("../images/2016/3.jpg");}
+  24% {
+    background-image: url("../images/2016/4.jpg");
+  }
+  32% {
+    background-image: url("../images/2016/5.jpg");
+  }
 
-  24% { background-image: url("../images/2016/4.jpg");}
-  32% { background-image: url("../images/2016/4.jpg");}
+  40% {
+    background-image: url("../images/2016/6.jpg");
+  }
+  48% {
+    background-image: url("../images/2016/7.jpg");
+  }
 
+  56% {
+    background-image: url("../images/2016/8.jpg");
+  }
+  64% {
+    background-image: url("../images/2016/9.jpg");
+  }
 
-  32% { background-image: url("../images/2016/5.jpg");}
-  40% { background-image: url("../images/2016/5.jpg");}
+  72% {
+    background-image: url("../images/2016/10.jpg");
+  }
 
-  40% { background-image: url("../images/2016/6.jpg");}
-  48% { background-image: url("../images/2016/6.jpg");}
+  80% {
+    background-image: url("../images/2016/11.jpg");
+  }
 
-  48% { background-image: url("../images/2016/7.jpg");}
-  56% { background-image: url("../images/2016/7.jpg");}
+  88% {
+    background-image: url("../images/2016/12.jpg");
+  }
 
-  56% { background-image: url("../images/2016/8.jpg");}
-  64% { background-image: url("../images/2016/8.jpg");}
-
-  64% { background-image: url("../images/2016/9.jpg");}
-  72% { background-image: url("../images/2016/9.jpg");}
-
-  72% { background-image: url("../images/2016/10.jpg");}
-  80% { background-image: url("../images/2016/10.jpg");}
-
-  80% { background-image: url("../images/2016/11.jpg");}
-  88% { background-image: url("../images/2016/11.jpg");}
-
-  88% { background-image: url("../images/2016/12.jpg");}
-
-  95% { background-image: url("../images/2016/13.jpg");}
-  100% { background-image: url("../images/2016/14.jpg");}
-
-  //0% { background-image: url("../images/speakers/gerasimov.svg");}
-  //20% { background-image: url("../images/speakers/vanchuk.svg");}
-  //25% { background-image: url("../images/speakers/vanchuk.svg"); }
-  //45% { background-image: url("../images/speakers/satchok.svg"); }
-  //50% { background-image: url("../images/speakers/satchok.svg");}
-  //70% { background-image: url("../images/speakers/jovanovic.svg");}
-  //75% { background-image: url("../images/speakers/jovanovic.svg");}
-  //95% { background-image: url("../images/speakers/krivlenya.svg");}
-  //100% { background-image: url("../images/speakers/krivlenya.svg");}
+  96% {
+    background-image: url("../images/2016/13.jpg");
+  }
+  100% {
+    background-image: url("../images/2016/14.jpg");
+  }
 }
 
 .preview-slider a:hover [class *="preview-box"] {
-  animation: 55s slidy infinite;
+  animation: 40s slidy2015 infinite;
   z-index: 2;
 }
-
-
 
 /*------------------------------------*\
     ANNOUNCEMENT -BLUE
@@ -630,7 +701,9 @@ nav {
 /*------------------------------------*\
     SPEAKER LIST
 \*------------------------------------*/
-.speaker-list {padding: 0;
+.speaker-list {
+  margin: 0 0 -60px;
+  padding: 0;
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -648,11 +721,79 @@ nav {
     max-height: 344px;
     display: inline-block;
   }
+
+  &.shorted {
+    margin: 0;
+    padding: 40px 0;
+    border: solid $color-black;
+    border-width: 1px 0;
+    li {
+      width: 33%;
+      padding: 0 15px;
+      margin: 0;
+    }
+  }
+}
+
+.speaker-list + h3 {
+  margin-top: 50px;
+}
+
+/*------------------------------------*\
+    SPEAKER PROFILE
+\*------------------------------------*/
+
+.speaker-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  img {
+    width: 50%;
+    margin-right: 15px;
+  }
+  .speaker-about {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    margin-left: 15px;
+    p.text-lg {
+      margin: 0 0 20px;
+    }
+  }
+}
+
+/*------------------------------------*\
+    TALK INFO
+\*------------------------------------*/
+
+.talk-info {
+  h2 {
+    margin: 0 0 30px;
+  }
+
+  .text-md {
+    padding: 10px 0 30px;
+    margin: 0;
+  }
+
+  .talk-date {
+    border-bottom: 1px solid $color-black;
+  }
+
+  .talk-time,
+  .talk-place {
+    padding: 0 8px;
+  }
+
+  .talk-with {
+    padding-top: 15px;
+  }
 }
 
 /*------------------------------------*\
     VENUE
 \*------------------------------------*/
+
 .img-venue {
   max-width: 550px;
   margin-bottom: 20px;
@@ -770,28 +911,28 @@ nav {
   }
 }
 
-/*------------------------------------*\
-    FOLLOW US SECTION
-\*------------------------------------*/
-.section-follow-us {
-  padding-bottom: 0;
-  .social-links {
-    padding: 80px 0;
-    a {
-      font-size: 3rem;
-    }
-  }
-}
 
 /*------------------------------------*\
     FOOTER
 \*------------------------------------*/
 
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -$height-footer;
+}
+
+.page-wrap:after {
+  content: ".";
+  display: block;
+  height: $height-footer;
+}
+
 footer {
-  height: 40px;
+  height: $height-footer;
   text-align: center;
   background: $color-black;
   color: $color-purple;
+
   p {
     font-size: 1.4rem;
     line-height: 4rem;
@@ -845,7 +986,6 @@ footer {
 \*------------------------------------*/
 @media (max-width: 767px) {
 
-
   .menu-wrapper {
     padding: 40px 0;
   }
@@ -872,6 +1012,10 @@ footer {
     }
   }
 
+  nav + section.shorted {
+    padding-top: 40px;
+  }
+
   .gallery-wrap {
     position: relative;
     min-height: 450px;
@@ -886,6 +1030,15 @@ footer {
       display: inline-block;
       margin: 0;
       padding: 0 20px;
+    }
+  }
+
+  .speaker-profile {
+    display: block;
+    .speaker-about {
+      display: block;
+      width: 100%;
+      margin: 0;
     }
   }
 }
