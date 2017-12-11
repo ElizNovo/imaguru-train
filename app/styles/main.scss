@@ -177,6 +177,25 @@ body {
     }
   }
 
+  &.page-contacts {
+    background: $color-purple;
+    footer {
+      color: $color-purple;
+    }
+  }
+
+  &.page-talk {
+    background: $color-yellow;
+    footer {
+      color: $color-yellow;
+    }
+    .btn {
+      &:hover {
+        color: $color-yellow;
+      }
+    }
+  }
+
   &.page-about {
     background: $color-blue;
     footer {
@@ -841,7 +860,7 @@ nav {
 \*------------------------------------*/
 
 .img-venue {
-  max-width: 550px;
+  max-width: 560px;
   margin-bottom: 20px;
 }
 
