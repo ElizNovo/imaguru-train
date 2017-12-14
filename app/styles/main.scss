@@ -686,13 +686,66 @@ nav {
   width: 260px;
   max-width: 260px;
   height: 172px;
-  background-image: url("../images/2016/1.jpg");
-  background-size: contain;
+  //background-image: url("../images/2016/1.jpg");
+  background-size: cover;
   font-size: 0;
+  z-index: 1;
 }
 
 @keyframes slidy2015 {
+  0% {
+    background-image: url("../images/2015/1.jpg");
+  }
 
+  8% {
+    background-image: url("../images/2015/2.jpg");
+  }
+  16% {
+    background-image: url("../images/2015/3.jpg");
+  }
+
+  24% {
+    background-image: url("../images/2015/4.jpg");
+  }
+  32% {
+    background-image: url("../images/2015/5.jpg");
+  }
+
+  40% {
+    background-image: url("../images/2015/6.jpg");
+  }
+  48% {
+    background-image: url("../images/2015/7.jpg");
+  }
+
+  56% {
+    background-image: url("../images/2015/8.jpg");
+  }
+  64% {
+    background-image: url("../images/2015/9.jpg");
+  }
+
+  72% {
+    background-image: url("../images/2015/10.jpg");
+  }
+
+  80% {
+    background-image: url("../images/2015/11.jpg");
+  }
+
+  88% {
+    background-image: url("../images/2015/12.jpg");
+  }
+
+  96% {
+    background-image: url("../images/2015/13.jpg");
+  }
+  100% {
+    background-image: url("../images/2015/14.jpg");
+  }
+}
+
+@keyframes slidy2016 {
   0% {
     background-image: url("../images/2016/1.jpg");
   }
@@ -745,8 +798,72 @@ nav {
   }
 }
 
-.preview-slider a:hover [class *="preview-box"] {
-  animation: 40s slidy2015 infinite;
+@keyframes slidy2017 {
+
+  0% {
+    background-image: url("../images/2017/1.jpg");
+  }
+
+  8% {
+    background-image: url("../images/2017/2.jpg");
+  }
+  16% {
+    background-image: url("../images/2017/3.jpg");
+  }
+
+  24% {
+    background-image: url("../images/2017/4.jpg");
+  }
+  32% {
+    background-image: url("../images/2017/5.jpg");
+  }
+
+  40% {
+    background-image: url("../images/2017/6.jpg");
+  }
+  48% {
+    background-image: url("../images/2017/7.jpg");
+  }
+
+  56% {
+    background-image: url("../images/2017/8.jpg");
+  }
+  64% {
+    background-image: url("../images/2017/9.jpg");
+  }
+
+  72% {
+    background-image: url("../images/2017/10.jpg");
+  }
+
+  80% {
+    background-image: url("../images/2017/11.jpg");
+  }
+
+  88% {
+    background-image: url("../images/2017/12.jpg");
+  }
+
+  96% {
+    background-image: url("../images/2017/13.jpg");
+  }
+  100% {
+    background-image: url("../images/2017/14.jpg");
+  }
+}
+
+.preview-slider a.linkto-2015:hover .preview-box-2015 {
+   animation: 30s slidy2015 linear infinite;
+  z-index: 2;
+ }
+
+.preview-slider a.linkto-2016:hover .preview-box-2016 {
+  animation: 30s slidy2016 linear infinite;
+  z-index: 2;
+}
+
+.preview-slider a.linkto-2017:hover .preview-box-2017 {
+  animation: 30s slidy2017 linear infinite;
   z-index: 2;
 }
 
@@ -852,6 +969,22 @@ nav {
 
   .talk-with {
     padding-top: 15px;
+  }
+}
+
+/*------------------------------------*\
+    VENUE
+\*------------------------------------*/
+
+.schedule {
+  list-style-type: none;
+  text-align: left;
+  li {
+    border-bottom: 1px solid $color-black;
+    padding: 30px 0;
+    &:first-child {
+      border-top: 1px solid $color-black;
+    }
   }
 }
 
