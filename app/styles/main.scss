@@ -137,13 +137,16 @@ html {
 
 body {
   height: 100%;
-  background: $color-blue;
-  //background: repeating-linear-gradient(black, black 1%, blue 1%, blue 99%, black, black 100%);
+  background: $color-black;
   padding-top: 44px;
   font-family: 'Exo 2', sans-serif;
   color: $color-text;
   font-size: 1.8rem;
   line-height: 2.8rem;
+}
+
+
+.page-wrap {
   transition: all 200ms;
 
   &.page-speakers {
@@ -153,14 +156,14 @@ body {
         color: $color-pink;
       }
     }
-    footer {
+    & + footer {
       color: $color-pink;
     }
   }
 
   &.page-venue {
     background: $color-green;
-    footer {
+    & + footer {
       color: $color-green;
     }
     .btn {
@@ -172,21 +175,21 @@ body {
 
   &.page-schedule {
     background: $color-lime;
-    footer {
+    & + footer {
       color: $color-lime;
     }
   }
 
   &.page-contacts {
     background: $color-purple;
-    footer {
+    & + footer {
       color: $color-purple;
     }
   }
 
   &.page-talk {
     background: $color-yellow;
-    footer {
+    & + footer {
       color: $color-yellow;
     }
     .btn {
@@ -198,7 +201,7 @@ body {
 
   &.page-about {
     background: $color-blue;
-    footer {
+    & + footer {
       color: $color-blue;
     }
     .btn {
@@ -211,6 +214,7 @@ body {
       }
     }
   }
+
 }
 
 .noscroll {
@@ -678,15 +682,15 @@ nav {
   position: relative;
 }
 
-.preview-slider [class *="preview-box"] {
+.preview-slider span {
   position: absolute;
   top: 40px;
   left: 0;
-  display: inline-block;
+  display: block;
   width: 260px;
   max-width: 260px;
   height: 172px;
-  //background-image: url("../images/2016/1.jpg");
+  background-image: url("../images/2016/1.jpg");
   background-size: cover;
   font-size: 0;
   z-index: 1;

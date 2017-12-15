@@ -9,12 +9,12 @@ $(window).on('scroll touchmove', function () {
     coloredSections.each(function (sectionIndex, sec) {
       let section = $(sec);
       if (scrollTop >= section.position().top) {
-        $('body').css('background', section.attr('data-color'));
+        $('.page-wrap').css('background', section.attr('data-color'));
       }
     });
   }
 });
 
 $('.menu-btn').click(function () {
-  ($('body').toggleClass('noscroll')) ;
+  ($('.page-wrap').toggleClass('noscroll')) ;
 })
