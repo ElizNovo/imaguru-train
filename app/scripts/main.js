@@ -16,5 +16,20 @@ $(window).on('scroll touchmove', function () {
 });
 
 $('.menu-btn').click(function () {
-  ($('.page-wrap').toggleClass('noscroll')) ;
+  $('body').toggleClass('noscroll') ;
+})
+
+// schedule tabs
+$('.first-day-btn').click(function () {
+  $('.first-day').addClass('active');
+  $('.first-day-btn').addClass('active');
+  $('.second-day').removeClass('active');
+  $('.second-day-btn').removeClass('active');
+})
+
+$('.second-day-btn').click(function () {
+  $('.second-day').addClass('active');
+  $('.second-day-btn').addClass('active');
+  $('.first-day').removeClass('active');
+  $('.first-day-btn').removeClass('active');
 })

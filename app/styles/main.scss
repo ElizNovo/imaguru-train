@@ -63,6 +63,14 @@ $line-height-h3-mb: 2.6rem;
       MIXINS
 \*------------------------------------*/
 
+// border-radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
 // transform
 @mixin transform($transforms) {
   -moz-transform: $transforms;
@@ -178,6 +186,11 @@ body {
     background: $color-lime;
     & + footer {
       color: $color-lime;
+    }
+    .btn {
+      &:hover, &.active  {
+        color: $color-lime;
+      }
     }
   }
 
@@ -368,6 +381,7 @@ nav + section.shorted {
 
 
 .btn {
+  background: transparent;
   display: inline-block;
   padding: 15px 50px;
   border: 2px solid $color-link;
@@ -378,18 +392,12 @@ nav + section.shorted {
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  transition: 0.7s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  transition: .6s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 
-  &:hover {
-    //color: #000; /* Fallback for older browsers */
-    //color: rgba(0, 0, 0, 0.5);
-    //background: #000;
-    /* Color fallback */
+  &:hover, &.active {
     color: $color-white;
     background-color: $color-black;
     border-bottom: 2px solid $color-link;
-    //-webkit-background-clip: text;
-    //-webkit-text-fill-color: transparent;
   }
 }
 
@@ -407,6 +415,16 @@ nav + section.shorted {
   }
 }
 
+mark {
+  padding: 0 7px;
+  margin: 0 5px;
+  &.stream-one {
+    background: $color-pink;
+  }
+  &.stream-two {
+    background: $color-blue;
+  }
+}
 
 
 /*------------------------------------*\
@@ -620,7 +638,7 @@ nav {
       width: 60px;
       display: inline-block;
       border: 2px solid $color-white;
-      border-radius: 50%;
+      @include border-radius(50%);
       margin: 0 16px 0 0;
 
       &.active {
@@ -655,15 +673,22 @@ nav {
 .menu-item-tickets {
   grid-area: tickets;
 
-  .placeholder-btn {
+  .btn {
+    width: 100%;
     margin: 20px 0;
     padding: 13px 0;
     border: 2px solid $color-white;
+    color: $color-white;
     font-size: 2rem;
     line-height: 3rem;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
+
+    &:hover {
+      background: $color-white;
+      color: $color-black !important;
+    }
   }
 
 }
@@ -692,9 +717,25 @@ nav {
   max-width: 260px;
   height: 172px;
   background-image: url("../images/2016/1.jpg");
-  background-size: cover;
+  background-size: contain;
   font-size: 0;
   z-index: 1;
+  transition: z-index .5s;
+}
+
+.preview-slider a.linkto-2015:hover .preview-box-2015 {
+  animation: 30s slidy2015 linear infinite;
+  z-index: 2;
+}
+
+.preview-slider a.linkto-2016:hover .preview-box-2016 {
+  animation: 30s slidy2016 linear infinite;
+  z-index: 2;
+}
+
+.preview-slider a.linkto-2017:hover .preview-box-2017 {
+  animation: 20s slidy2017 linear infinite;
+  z-index: 2;
 }
 
 @keyframes slidy2015 {
@@ -805,72 +846,59 @@ nav {
 
 @keyframes slidy2017 {
 
-  0% {
+  0%, 8% {
     background-image: url("../images/2017/1.jpg");
   }
 
-  8% {
+  8%, 16% {
     background-image: url("../images/2017/2.jpg");
   }
-  16% {
+  16%, 24% {
     background-image: url("../images/2017/3.jpg");
   }
 
-  24% {
+  24%, 32% {
     background-image: url("../images/2017/4.jpg");
   }
-  32% {
+  32%, 40% {
     background-image: url("../images/2017/5.jpg");
   }
 
-  40% {
+  40%, 48% {
     background-image: url("../images/2017/6.jpg");
   }
-  48% {
+  48%, 56% {
     background-image: url("../images/2017/7.jpg");
   }
 
-  56% {
+  56%, 64% {
     background-image: url("../images/2017/8.jpg");
   }
-  64% {
+  64%, 72% {
     background-image: url("../images/2017/9.jpg");
   }
 
-  72% {
+  72%, 80% {
     background-image: url("../images/2017/10.jpg");
   }
-
-  80% {
+  80%, 88% {
     background-image: url("../images/2017/11.jpg");
   }
 
-  88% {
+  88%, 96% {
     background-image: url("../images/2017/12.jpg");
   }
 
-  96% {
+  96%, 100% {
     background-image: url("../images/2017/13.jpg");
   }
   100% {
     background-image: url("../images/2017/14.jpg");
   }
+
 }
 
-.preview-slider a.linkto-2015:hover .preview-box-2015 {
-   animation: 30s slidy2015 linear infinite;
-  z-index: 2;
- }
 
-.preview-slider a.linkto-2016:hover .preview-box-2016 {
-  animation: 30s slidy2016 linear infinite;
-  z-index: 2;
-}
-
-.preview-slider a.linkto-2017:hover .preview-box-2017 {
-  animation: 30s slidy2017 linear infinite;
-  z-index: 2;
-}
 
 /*------------------------------------*\
     ANNOUNCEMENT -BLUE
@@ -978,18 +1006,87 @@ nav {
 }
 
 /*------------------------------------*\
-    VENUE
+    SCHEDULE
 \*------------------------------------*/
 
+.first-day-btn,
+.second-day-btn {
+
+  @include border-radius(30px);
+  margin: 0 15px;
+
+  .abbr-view {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+
+    box-sizing: content-box;
+    min-width: 40px;
+    padding: 10px 20px;
+    margin: 0 10px;
+
+    .abbr-view {
+      display: inline;
+    }
+    .full-view {
+      display: none;
+    }
+  }
+}
+
+
 .schedule {
+  display: none;
   list-style-type: none;
   text-align: left;
-  li {
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 60px 0 0;
+
+  @media (max-width: 767px) {
+    padding: 40px 0 0;
+  }
+
+  &.active {
+    display: flex;
+  }
+
+  & > li {
+    width: 100%;
+    position: relative;
     border-bottom: 1px solid $color-black;
-    padding: 30px 0;
+    padding: 35px 100px;
+    @media (max-width: 767px) {
+      padding: 25px 10px 25px 75px;
+    }
+
     &:first-child {
       border-top: 1px solid $color-black;
     }
+
+    .schedule-time {
+      position: absolute;
+      left: 0;
+    }
+
+    &.two-stream {
+      @media (min-width: 767px) {
+        width: 50%;
+        padding-right: 25px;
+
+        & + .two-stream {
+          padding-right: 0;
+          padding-left: 25px;
+          .schedule-time {
+            display: none;
+          }
+        }
+
+      }
+
+    }
+
   }
 }
 
@@ -1113,6 +1210,9 @@ nav {
   a {
     border-bottom: 0;
   }
+  img {
+    max-width: 140px;
+  }
 }
 
 .previous-conf-list {
@@ -1233,12 +1333,14 @@ footer {
   }
 
   .gallery-wrap {
-    position: relative;
-    min-height: 450px;
-    overflow: scroll;
+    //position: relative;
+
   }
   .gallery {
-    position: absolute;
+    //position: absolute;
+    //min-height: 450px;
+    overflow-x: scroll;
+    overflow-y: hidden;
     display: flex;
     align-items: center;
 
