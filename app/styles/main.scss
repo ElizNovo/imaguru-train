@@ -1293,8 +1293,22 @@ footer {
     }
   }
 
-  .gallery img {
-    width: auto;
+  .gallery {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    align-items: center;
+
+    li {
+      display: inline-block;
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    img {
+      width: auto;
+    }
   }
 }
 
@@ -1333,25 +1347,6 @@ footer {
     padding-top: 40px;
   }
 
-  .gallery-wrap {
-    //position: relative;
-
-  }
-  .gallery {
-    //position: absolute;
-    //min-height: 450px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    align-items: center;
-
-    li {
-      display: inline-block;
-      margin: 0;
-      padding: 0 20px;
-    }
-  }
 
   .speaker-profile {
     display: block;
