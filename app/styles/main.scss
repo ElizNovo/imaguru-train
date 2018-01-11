@@ -233,6 +233,7 @@ body {
 
 .noscroll {
   overflow: hidden;
+  -webkit-overflow-scrolling: auto;
 }
 
 p {
