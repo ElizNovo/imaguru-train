@@ -157,6 +157,7 @@ body {
 .page-wrap {
   background: $color-blue;
   transition: all 200ms;
+  min-width: 320px;
 
   &.page-speakers {
     background: $color-pink;
@@ -413,17 +414,6 @@ nav + section.shorted {
     border-bottom: none;
     font-size: 3rem;
     padding: 0 5px;
-  }
-}
-
-mark {
-  padding: 0 7px;
-  margin: 0 5px;
-  &.stream-one {
-    background: $color-pink;
-  }
-  &.stream-two {
-    background: $color-blue;
   }
 }
 
@@ -932,6 +922,7 @@ nav {
     display: list-item;
     width: 25%;
     margin-bottom: 60px;
+    text-align: left;
   }
   img {
     max-width: 260px;
@@ -998,8 +989,16 @@ nav {
   }
 
   .talk-time,
-  .talk-place {
+  .talk-place,
+  .talk-lang {
     padding: 0 8px;
+  }
+
+  .first-stream {
+     background: $color-pink;
+   }
+  .second-stream {
+    background: $color-blue;
   }
 
   .talk-with {
@@ -1013,6 +1012,8 @@ nav {
 
 .first-day-btn,
 .second-day-btn {
+
+  transition: 0.3s;
 
   @include border-radius(30px);
   margin: 0 15px;
@@ -1036,7 +1037,6 @@ nav {
     }
   }
 }
-
 
 .schedule {
   display: none;
@@ -1072,21 +1072,38 @@ nav {
       left: 0;
     }
 
-    &.two-stream {
+    .talk-place {
+      padding: 0 7px;
+      margin: 0 5px;
+    }
+
+    &.first-stream {
+        .talk-place {
+          background: $color-pink;
+        }
+      }
+    &.second-stream {
+      .talk-place {
+        background: $color-blue;
+      }
+    }
+
+    &.first-stream,
+    &.second-stream {
       @media (min-width: 767px) {
         width: 50%;
         padding-right: 25px;
-
-        & + .two-stream {
-          padding-right: 0;
-          padding-left: 25px;
-          .schedule-time {
-            display: none;
-          }
-        }
-
       }
+    }
 
+    &.second-stream {
+      @media (min-width: 767px) {
+        padding-right: 0;
+        padding-left: 25px;
+        .schedule-time {
+          display: none;
+        }
+      }
     }
 
   }
@@ -1196,6 +1213,8 @@ nav {
     PARTNERS
 \*------------------------------------*/
 .partner-list {
+  max-width: 900px;
+  margin: 0 auto;
   padding: 0;
   list-style-type: none;
   display: flex;
@@ -1206,7 +1225,7 @@ nav {
   align-content: flex-start;
   li {
     display: list-item;
-    width: 25%;
+    width: 20%;
     margin-bottom: 60px;
   }
   a {
@@ -1310,6 +1329,10 @@ footer {
     img {
       width: auto;
     }
+  }
+
+  .partner-list li {
+    width: 30%;
   }
 }
 
