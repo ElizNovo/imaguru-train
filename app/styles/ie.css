@@ -1,0 +1,10 @@
+
+
+.menu-content {
+  display: table;
+
+}
+
+.menu-content > div {
+  display: table-cell;
+}
