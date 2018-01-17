@@ -187,7 +187,7 @@ body {
     }
   }
 
-  &.page-schedule {
+  &.page-schedule,&.page-code-of-conduct {
     background: $color-lime;
     & + footer {
       color: $color-lime;
