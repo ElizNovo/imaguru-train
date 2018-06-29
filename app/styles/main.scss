@@ -159,80 +159,9 @@ body {
 }
 
 .page-wrap {
-  background: $color-blue;
+  background: $color-yellow;
   transition: all 200ms;
   min-width: 320px;
-
-  &.page-speakers {
-    background: $color-pink;
-    .btn {
-      &:hover {
-        color: $color-pink;
-      }
-    }
-    & + footer {
-      color: $color-pink;
-    }
-  }
-
-  &.page-venue, &.page-partners {
-    background: $color-green;
-    & + footer {
-      color: $color-green;
-    }
-    .btn {
-      &:hover {
-        color: $color-green;
-      }
-    }
-  }
-
-  &.page-schedule {
-    background: $color-lime;
-    & + footer {
-      color: $color-lime;
-    }
-    .btn {
-      &:hover, &.active {
-        color: $color-lime;
-      }
-    }
-  }
-
-  &.page-contacts {
-    background: $color-purple;
-    & + footer {
-      color: $color-purple;
-    }
-  }
-
-  &.page-talk {
-    background: $color-yellow;
-    & + footer {
-      color: $color-yellow;
-    }
-    .btn {
-      &:hover {
-        color: $color-yellow;
-      }
-    }
-  }
-
-  &.page-about, &.page-code-of-conduct {
-    background: $color-blue;
-    & + footer, footer {
-      color: $color-blue;
-    }
-    .btn {
-      margin: 30px 0;
-      @media (max-width: 767px) {
-        margin: 15px 0;
-      }
-      &:hover {
-        color: $color-blue;
-      }
-    }
-  }
 
 }
 
@@ -454,395 +383,6 @@ blockquote {
 }
 
 /*------------------------------------*\
-    ANIMATED NAVIGATION
-\*------------------------------------*/
-//nav {
-//  position: fixed;
-//  top: 0;
-//  width: 100%;
-//  height: 44px;
-//  background: $color-black;
-//  color: $color-white;
-//  text-align: center;
-//  z-index: 1001;
-//
-//  a {
-//    color: $color-white;
-//    border-bottom: 1px solid $color-white;
-//    &:hover {
-//      border-bottom: none;
-//    }
-//  }
-//  h2 a {
-//    border-bottom: none;
-//  }
-//
-//  .social-links a {
-//    font-size: 2.5rem;
-//  }
-//}
-
-/*------------------------------------*\
-    HAMBURGER MENU ICON
-\*------------------------------------*/
-//
-//.menu-icon {
-//  background: $color-black;
-//  height: 44px;
-//  padding-top: 14px;
-//  position: absolute;
-//  z-index: 1;
-//  width: 100%;
-//}
-//
-//.menu-icon span {
-//  display: block;
-//  width: 40px;
-//  height: 2px;
-//  margin: 0 auto 5px;
-//  position: relative;
-//  font-size: 0;
-//  background: $color-white;
-//  z-index: 1;
-//  @include transform-origin(4px 0);
-//  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-//  background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-//  opacity 0.55s ease;
-//}
-//
-//.menu-icon span:first-child {
-//  @include transform-origin(0);
-//}
-//
-//.menu-icon span:nth-child(3) {
-//  @include transform-origin(0 100%);
-//  margin-bottom: 0;
-//}
-
-/*------------------------------------*\
-    MENU BUTTON
-\*------------------------------------*/
-
-//.menu-btn {
-//  display: block;
-//  width: 40px;
-//  height: 20px;
-//  position: absolute;
-//  top: 14px;
-//  left: 50%;
-//  margin-left: -20px;
-//  cursor: pointer;
-//  opacity: 0;
-//  z-index: 2;
-//  -webkit-touch-callout: none;
-//}
-//
-//.menu-btn:checked {
-//  width: 24px;
-//  height: 24px;
-//  margin-left: -16px;
-//}
-//
-//.menu-btn:checked + .menu-icon {
-//  padding-left: 8px;
-//  height: 64px;
-//}
-//
-//.menu-btn:checked + .menu-icon span {
-//  opacity: 1;
-//  transform: rotate(45deg) translate(-2px, 2px);
-//  background: #fff;
-//  width: 33px;
-//}
-//
-//.menu-btn:checked + .menu-icon span:nth-child(2) {
-//  opacity: 0;
-//  transform: rotate(0deg) scale(0.2, 0.2);
-//}
-//
-//.menu-btn:checked + .menu-icon span:nth-child(3) {
-//  transform: rotate(-45deg) translate(-8px, 3px);
-//}
-
-/*------------------------------------*\
-    MENU CONTENT
-\*------------------------------------*/
-//.menu-wrapper {
-//  overflow: auto;
-//  position: fixed;
-//  -webkit-overflow-scrolling: touch;
-//  top: 0;
-//  bottom: 0;
-//  width: 100%;
-//  //min-height: 100%;
-//  //height: 100vh;
-//  color: $color-white;
-//  background: $color-black;
-//  padding: 120px 0 0;
-//  -webkit-font-smoothing: antialiased;
-//  transform: translate(0, -120%);
-//  transform-origin: 0 0;
-//  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-//
-//  @media (max-width: $screen-tablet) {
-//    padding: 40px 0;
-//  }
-//}
-//
-//.menu-btn:checked ~ .menu-wrapper {
-//  transform: none;
-//}
-//
-//.menu-content {
-//  width: 100%;
-//  max-width: 1200px;
-//  padding: 0 30px;
-//  margin: auto;
-//  text-align: left;
-//
-//  display: inline-grid;
-//  grid-template-columns: repeat(4, 1fr);
-//  grid-column-gap: 30px;
-//  grid-row-gap: 30px;
-//  grid-template-rows: auto;
-//  align-content: space-between;
-//
-//  grid-template-areas: "primary about venue tickets" "primary previous venue tickets" "primary previous venue social" "lang . . . ";
-//
-//  ul {
-//    list-style: none;
-//    padding: 0;
-//  }
-//
-//  h2 {
-//    margin: 1.5rem 0;
-//    text-transform: uppercase;
-//    font-size: 1.8rem;
-//    line-height: 2.8rem;
-//  }
-//
-//  h3 {
-//    margin: 0;
-//    font-size: 1.8rem;
-//    line-height: 2.8rem;
-//  }
-//
-//  p {
-//    font-size: 1.6rem;
-//    line-height: 2.4rem;
-//    margin: 8px 0;
-//  }
-//
-//  img {
-//    width: 100%;
-//    max-width: 260px;
-//    max-height: 146px;
-//  }
-//
-//  @media (max-width: $screen-desktop) {
-//    grid-template-columns: repeat(3, 1fr);
-//    grid-row-gap: 0;
-//    grid-template-areas: "primary about venue" "primary previous venue" "primary tickets social" "lang . .";
-//  }
-//
-//  @media (max-width: $screen-tablet) {
-//    padding: 0 70px;
-//    text-align: center;
-//
-//    grid-template-columns: repeat(1, 100%);
-//    grid-row-gap: 0;
-//    grid-template-areas: "primary" "tickets" "previous" "lang";
-//  }
-//
-//}
-//
-//.menu-item-primary {
-//  grid-area: primary;
-//  li {
-//    padding: 8px 0;
-//    text-transform: uppercase;
-//    font-weight: bold;
-//    &:first-child {
-//      padding-top: 0;
-//    }
-//  }
-//  a {
-//    border-bottom: none;
-//  }
-//}
-//
-//.menu-item-lang {
-//  grid-area: lang;
-//
-//  li {
-//    display: inline-block;
-//
-//    a {
-//      height: 60px;
-//      line-height: 56px;
-//      text-align: center;
-//      text-transform: uppercase;
-//      font-weight: bold;
-//      width: 60px;
-//      display: inline-block;
-//      border: 2px solid $color-white;
-//      @include border-radius(50%);
-//      margin: 0 16px 0 0;
-//
-//      &.active {
-//        background: $color-white;
-//        color: $color-black;
-//      }
-//    }
-//  }
-//}
-//
-//.menu-item-about {
-//  grid-area: about;
-//  @media (max-width: $screen-tablet) {
-//    display: none;
-//  }
-//}
-//
-//.menu-item-previous {
-//  grid-area: previous;
-//
-//  li {
-//    display: inline-block;
-//    padding: 0 16px 0 0;
-//  }
-//
-//  a.active {
-//    border-bottom: none;
-//  }
-//
-//  //img {
-//  //  @media (max-width: $screen-desktop) {
-//  //    display: none;
-//  //  }
-//  //}
-//
-//}
-//
-//.menu-item-venue {
-//  grid-area: venue;
-//  @media (max-width: $screen-tablet) {
-//    display: none;
-//  }
-//}
-//
-//.menu-item-tickets {
-//  grid-area: tickets;
-//
-//  .btn, .placeholder-btn {
-//    width: 100%;
-//    margin: 20px 0;
-//    padding: 13px 0;
-//    border: 2px solid $color-white;
-//    color: $color-white;
-//    font-size: 2rem;
-//    line-height: 3rem;
-//    font-weight: bold;
-//    text-transform: uppercase;
-//    text-align: center;
-//
-//    &:hover {
-//      background: $color-white;
-//      color: $color-black !important;
-//    }
-//  }
-//
-//  .placeholder-btn {
-//    cursor: default;
-//    &:hover {
-//      background: transparent;
-//      color: $color-white !important;
-//    }
-//  }
-//}
-//
-//.menu-item-social {
-//  grid-area: social;
-//  .social-links {
-//    text-align: left;
-//  }
-//
-//  @media (max-width: $screen-tablet) {
-//    display: none;
-//  }
-//}
-//
-//.city-address {
-//  @media (max-width: $screen-tablet) {
-//    display: none;
-//  }
-//}
-//
-//// MS Edge Browser CSS
-//@supports (-ms-ime-align:auto) {
-//  .menu-content {
-//    display: flex;
-//    flex-wrap: wrap;
-//    flex-direction: row;
-//  }
-//
-//  .menu-content > div {
-//    width: 25%;
-//
-//    @media (max-width: $screen-desktop) {
-//      width: 33%;
-//    }
-//
-//    @media (max-width: $screen-tablet) {
-//      width: 100%;
-//    }
-//  }
-//
-//  .gallery {
-//    display: flex;
-//    flex-wrap: wrap;
-//    align-items: center;
-//    justify-content: space-around;
-//    > li {
-//      padding: 5px;
-//    }
-//  }
-//
-//}
-//
-//// IE10 and IE11
-//@media all and (-ms-high-contrast: none) {
-//  .menu-content {
-//    display: flex;
-//    flex-wrap: wrap;
-//    flex-direction: row;
-//  }
-//
-//  .menu-content > div {
-//    width: 25%;
-//
-//    @media (max-width: $screen-desktop) {
-//      width: 33%;
-//    }
-//
-//    @media (max-width: $screen-tablet) {
-//      width: 100%;
-//    }
-//  }
-//
-//  .gallery {
-//    display: flex;
-//    flex-wrap: wrap;
-//    align-items: center;
-//    justify-content: space-around;
-//    > li {
-//      padding: 5px;
-//    }
-//  }
-//
-//}
-
-/*------------------------------------*\
     ANNOUNCEMENT -BLUE
 \*------------------------------------*/
 
@@ -852,17 +392,20 @@ blockquote {
     padding: 15px 30px;
     min-width: 210px;
     &:hover {
-      color: $color-blue;
+      color: $color-yellow;
     }
   }
 
-
 }
 
-.logo-org {
-  width: 40%;
-  max-width: 200px;
-  margin: 0 50px 100px;
+.partner-list.org {
+  li {
+    width: 40%;
+
+    img {
+      max-width: 200px;
+    }
+  }
 }
 
 /*------------------------------------*\
@@ -917,75 +460,7 @@ blockquote {
   margin-top: 50px;
 }
 
-/*------------------------------------*\
-    SPEAKER PROFILE
-\*------------------------------------*/
 
-.speaker-profile {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  img {
-    width: 50%;
-    margin-right: 15px;
-  }
-  .speaker-about {
-    display: inline-block;
-    width: 50%;
-    text-align: left;
-    margin-left: 15px;
-    p.text-lg {
-      margin: 0 0 20px;
-    }
-  }
-
-  @media (max-width: $screen-tablet) {
-    display: block;
-    .speaker-about {
-      display: block;
-      width: 100%;
-      margin: 0;
-    }
-
-  }
-
-}
-
-/*------------------------------------*\
-    TALK INFO
-\*------------------------------------*/
-
-.talk-info {
-  h2 {
-    margin: 0 0 30px;
-  }
-
-  .text-md {
-    padding: 10px 0 30px;
-    margin: 0;
-  }
-
-  //.talk-date {
-  //  border-bottom: 1px solid $color-black;
-  //}
-
-  .talk-time,
-  .talk-place,
-  .talk-lang {
-    padding: 0 5px;
-  }
-
-  .first-stream {
-    background: $color-pink;
-  }
-  .second-stream {
-    background: $color-blue;
-  }
-
-  .talk-with {
-    padding-top: 15px;
-  }
-}
 
 /*------------------------------------*\
     SCHEDULE
@@ -1025,7 +500,7 @@ blockquote {
   text-align: left;
   flex-wrap: wrap;
   margin: 0;
-  padding: 60px 0 0;
+  padding: 0;
 
   @media (max-width: $screen-tablet) {
     padding: 40px 0 0;
@@ -1039,7 +514,7 @@ blockquote {
     width: 100%;
     position: relative;
     border-bottom: 1px solid $color-black;
-    padding: 35px 100px;
+    padding: 5px 100px 5px 200px;
     @media (max-width: $screen-tablet) {
       padding: 25px 10px 25px 75px;
     }
@@ -1051,6 +526,7 @@ blockquote {
     .schedule-time {
       position: absolute;
       left: 0;
+      width: 200px;
     }
 
     .talk-place {
@@ -1285,7 +761,6 @@ blockquote {
   }
 }
 
-
 .previous-conf-list {
   list-style-type: none;
   padding: 0;
@@ -1317,7 +792,7 @@ footer {
   height: $height-footer;
   text-align: center;
   background: $color-black;
-  color: $color-purple;
+  color: $color-green;
 
   p {
     font-size: 1.4rem;
