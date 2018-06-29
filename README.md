@@ -1,2 +1,2 @@
-# rsconf18 draft
-- https://sonejka.github.io/rsconf18/dist/
+# "imaguru hackahon on train" landing page
+- https://sonejka.github.io/imaguru-train/dist/index.html
