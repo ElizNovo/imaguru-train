@@ -44,8 +44,8 @@ $font-size-lg-mb: 2.4rem;
 $line-height-lg-mb: 3.2rem;
 
 //heading sizes
-$font-size-h1: 7.2rem;
-$line-height-h1: 8rem;
+$font-size-h1: 6rem;
+$line-height-h1: 7rem;
 $font-size-h2: 2rem;
 $line-height-h2: 3rem;
 $font-size-h3: 2rem;
@@ -385,8 +385,9 @@ blockquote {
   max-width: 500px;
 }
 
+
 /*------------------------------------*\
-    ANNOUNCEMENT -BLUE
+    ANNOUNCEMENT
 \*------------------------------------*/
 
 .announcement {
@@ -579,6 +580,29 @@ blockquote {
   max-width: 560px;
   margin-bottom: 20px;
 }
+
+/*------------------------------------*\
+    DESTINATION
+\*------------------------------------*/
+
+.train-destination {
+  position: relative;
+
+  .start-point,
+  .end-point {
+    position: absolute;
+    bottom: -20px;
+    display: block;
+  }
+  .start-point {
+    left: 20px;
+  }
+
+  .end-point {
+    right: 20px;
+  }
+}
+
 
 /*------------------------------------*\
     TWEETS
