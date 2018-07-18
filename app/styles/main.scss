@@ -409,14 +409,9 @@ blockquote {
 
     img {
       max-width: 200px;
-    }
-  }
-}
-
-section[data-color="#CDE525"] {
-  .btn {
-    &:hover {
-      color: $color-lime;
+      @media (max-width: $screen-tablet) {
+        max-width: 100px;
+      }
     }
   }
 }
